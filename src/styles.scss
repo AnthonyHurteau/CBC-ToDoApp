@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@include mat-core();
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.form-content {
+  position: relative;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+
+  .page-headers {
+    padding-bottom: 15px;
+
+    .page-titles {
+      font-weight: bold;
+      font-size: 30px;
+    }
+  }
+}
+
+.input {
+  width: 100%;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
