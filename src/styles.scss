@@ -19,12 +19,36 @@ body {
   padding-bottom: 3%;
 
   .page-headers {
+    position: fixed;
+    top: 59px;
+    right: 0px;
+    left: 0px;
+    z-index: 3;
+    padding-top: 15px;
     padding-bottom: 15px;
+    background-color: white;
+  }
 
-    .page-titles {
-      font-weight: bold;
-      font-size: 30px;
-    }
+  .page-headers-lt-md {
+    top: 55px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .page-titles {
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .page-content {
+    position: relative;
+    padding-top: 20px;
+    min-height: 500px;
+    z-index: 2;
+  }
+
+  .page-content-lt-md {
+    padding-top: 40px;
   }
 }
 

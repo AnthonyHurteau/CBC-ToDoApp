@@ -1,0 +1,19 @@
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+}
+
+.component-container {
+  position: absolute;
+  top: 64px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+}
+
+.component-container-lt-md {
+  top: 56px;
+}

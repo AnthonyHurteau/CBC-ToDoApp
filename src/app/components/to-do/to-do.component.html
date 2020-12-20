@@ -1,7 +1,8 @@
 <form [formGroup]="toDoForm">
   <div class="form-content">
 
-    <div class="page-headers"
+    <div class="page-headers mat-elevation-z4"
+         ngClass.lt-md="page-headers-lt-md mat-elevation-z4"
          fxLayout="row"
          fxLayoutAlign="space-evenly center">
       <span class="page-titles">ToDo List</span>
@@ -12,74 +13,77 @@
       </button>
     </div>
 
-    <div *ngIf="toDoTasks$ | async as toDoTask; else loading"
-         formArrayName="toDoTasksArray">
-      <ng-container *ngFor="
+    <div class="page-content"
+         ngClass.lt-md="page-content-lt-md">
+      <div *ngIf="toDoTasks$ | async as toDoTask; else loading"
+           formArrayName="toDoTasksArray">
+        <ng-container *ngFor="
   let toDoTask of toDoTasksFormArray.controls;
   let i = index
 "
-                    [formGroupName]="i">
-        <div fxLayoutAlign="center center">
+                      [formGroupName]="i">
+          <div fxLayoutAlign="center center">
 
 
-          <mat-card ngClass.gt-sm="cards-gt-sm"
-                    class="cards">
-            <mat-card-header>
-              <mat-card-title>Task #{{i+1}}</mat-card-title>
-            </mat-card-header>
+            <mat-card ngClass.gt-sm="cards-gt-sm"
+                      class="cards">
+              <mat-card-header>
+                <mat-card-title>Task #{{i+1}}</mat-card-title>
+              </mat-card-header>
 
-            <div fxLayout="row wrap"
-                 fxLayoutAlign="space-between center">
-              <mat-form-field fxFlex.gt-sm="70"
-                              fxFlex.lt-md="100"
-                              appearance="standard"
-                              class="input">
-                <mat-label>Title</mat-label>
-                <input matInput
-                       placeholder="Task Title"
-                       formControlName="title">
-              </mat-form-field>
+              <div fxLayout="row wrap"
+                   fxLayoutAlign="space-between center">
+                <mat-form-field fxFlex.gt-sm="70"
+                                fxFlex.lt-md="100"
+                                appearance="standard"
+                                class="input">
+                  <mat-label>Title</mat-label>
+                  <input matInput
+                         placeholder="Task Title"
+                         formControlName="title">
+                </mat-form-field>
 
-              <mat-form-field fxFlex.gt-sm="20"
-                              fxFlex.lt-md="100"
-                              appearance="standard"
-                              class="input">
-                <mat-label>Date</mat-label>
-                <input matInput
-                       [matDatepicker]="datePicker"
-                       formControlName="date">
-                <mat-datepicker-toggle matSuffix
-                                       [for]="datePicker"></mat-datepicker-toggle>
-                <mat-datepicker #datePicker></mat-datepicker>
-              </mat-form-field>
+                <mat-form-field fxFlex.gt-sm="20"
+                                fxFlex.lt-md="100"
+                                appearance="standard"
+                                class="input">
+                  <mat-label>Date</mat-label>
+                  <input matInput
+                         [matDatepicker]="datePicker"
+                         formControlName="date">
+                  <mat-datepicker-toggle matSuffix
+                                         [for]="datePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #datePicker></mat-datepicker>
+                </mat-form-field>
 
-              <mat-form-field fxFlex="100"
-                              appearance="standard"
-                              class="input">
-                <mat-label>Description</mat-label>
-                <textarea matInput
-                          placeholder="Describe the task"
-                          formControlName="description"></textarea>
-              </mat-form-field>
-            </div>
+                <mat-form-field fxFlex="100"
+                                appearance="standard"
+                                class="input">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput
+                            placeholder="Describe the task"
+                            formControlName="description"></textarea>
+                </mat-form-field>
+              </div>
 
-            <mat-card-actions align="end">
-              <button *ngIf="toDoTask.dirty"
-                      mat-raised-button
-                      color="primary"
-                      [disabled]="toDoTask.pristine || toDoTask.invalid"
-                      (click)="onSave(i)">
-                <mat-icon>save</mat-icon>Save
-              </button>
-              <button mat-raised-button
-                      color="warn"
-                      (click)="onDelete(i)">
-                <mat-icon>delete</mat-icon>Delete
-              </button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-      </ng-container>
+              <mat-card-actions align="end">
+                <button *ngIf="toDoTask.dirty"
+                        mat-raised-button
+                        color="primary"
+                        [disabled]="toDoTask.pristine || toDoTask.invalid"
+                        (click)="onSave(i)">
+                  <mat-icon>save</mat-icon>Save
+                </button>
+                <button mat-raised-button
+                        color="warn"
+                        (click)="onDelete(i)">
+                  <mat-icon>delete</mat-icon>Delete
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
 </form>
